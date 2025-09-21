@@ -26,6 +26,8 @@ Understand what the OAK-D Lite camera is and why it’s special.
 - Stereo cameras: 86° FOV, ~2% depth error up to 4m.  
 - Myriad X: 1.4 TOPS for AI tasks.
 
+
+
 ---
 # DepthAI Basics
 
@@ -60,3 +62,24 @@ pipeline = dai.Pipeline()
 cam = pipeline.create(dai.node.ColorCamera)
 xout = pipeline.create(dai.node.XLinkOut)
 cam.preview.link(xout.input)
+
+---
+### Stereo Depth
+- Uses two mono cameras (left + right) with the StereoDepth node.  
+- Output: disparity map (relative depth, later converted to distance in mm).  
+- Options:  
+  - `extended_disparity` → see closer objects.  
+  - `subpixel` → better far accuracy.  
+  - `lr_check` → reduces errors at object edges.  
+
+#### Core Snippet
+```python
+left = pipeline.create(dai.node.MonoCamera)
+right = pipeline.create(dai.node.MonoCamera)
+stereo = pipeline.create(dai.node.StereoDepth)
+
+left.out.link(stereo.left)
+right.out.link(stereo.right)
+
+xout = pipeline.create(dai.node.XLinkOut)
+stereo.disparity.link(xout.input)
