@@ -60,3 +60,15 @@ with dai.Device() as device:
 
         if cv2.waitKey(1) == ord('q'):
             break
+
+
+"""
+Explanation:
+1. We build a pipeline object.
+2. We create a ColorCamera node (this grabs frames from the RGB sensor).
+3. We create an XLinkOut node (used to send data back to the computer).
+4. We connect the camera preview to the XLinkOut.
+5. We set the output stream name to 'rgb'.
+
+This is the smallest working example of a DepthAI pipeline.
+"""
