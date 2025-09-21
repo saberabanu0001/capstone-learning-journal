@@ -1,42 +1,62 @@
-1. The Robotics Development Process and My Role
-Initially, I was confused about the overall robotics development process and how my vision part would fit into it. We've established that the project is broken down into several key phases:
+# Big Picture (OAK-D Lite Overview)
 
-Mechanical Design: Building the robot's physical structure.
+## Goal
+Understand what the OAK-D Lite camera is and why it’s special.
 
-Electronics & Wiring: Connecting the sensors and the computer to the power source.
+## Key Learnings
+- **RGB Camera**  
+  Captures high-resolution color images (like a normal webcam).  
+  Useful for object detection, face recognition, and seeing textures.
 
-Software Development & Integration: Writing the code that makes the robot function (this is my main role).
+- **Stereo Depth Cameras**  
+  Two small monochrome sensors placed apart (like human eyes).  
+  They calculate distance (depth map) so the robot knows *how far* objects are.  
+  Ideal depth range: ~0.8m – 12m.
 
-System Testing: Ensuring all parts work together correctly.
+- **Myriad X (RVC2 VPU)**  
+  Built-in AI chip inside the camera.  
+  Runs neural networks directly on the device (person detection, object tracking).  
+  Reduces load on the Jetson Orin NX.
 
-My specific task is to develop the Smart Perception pillar. This system will enable the robot to "see" its surroundings using a 3D camera, recognize faces, and avoid obstacles. My code will be the "eyes" that feed information to the robot's "brain" (the Jetson Orin).
+## Diagram – Data Flow
 
-2. Hardware: MacBook vs. Jetson Orin
-My lack of hardware experience made me unsure about the roles of the MacBook and the Jetson Orin. We clarified that:
 
-MacBook M4: This is my development tool. I will write and test my code on this powerful laptop, connecting the 3D camera via a USB cable. The MacBook's robust interface and processing power are ideal for the initial coding and debugging phases.
+## One Useful Spec
+- RGB camera: 12MP, auto-focus, ~81° FOV.  
+- Stereo cameras: 86° FOV, ~2% depth error up to 4m.  
+- Myriad X: 1.4 TOPS for AI tasks.
 
-NVIDIA Jetson Orin NX (16GB): This will be the robot's permanent brain. Once my code is fully functional, I will deploy it to the Jetson. The robot will then run autonomously, powered by the Jetson, without needing my MacBook.
+---
+# DepthAI Basics
 
-3. Required Skills and Learning Plan
-With 1-2 weeks before the hardware arrives, I need to start learning OpenCV, which is essential for my role. My key tasks will be:
+## Goal
+Understand the DepthAI software library and the concept of pipelines.
 
-Acquiring data from the 3D camera.
+## Key Learnings
+- **Pipeline**  
+  A chain of nodes where data flows: camera → processing → output.  
+  Like a conveyor belt for vision tasks.
 
-Implementing obstacle detection.
+- **RGB Preview**  
+  Example pipeline that streams live color video frames.  
+  Built with a `ColorCamera` node linked to `XLinkOut`.
 
-Developing person recognition and tracking features.
+- **Stereo Depth**  
+  Example pipeline using two mono cameras to create a depth map (distance image).  
+  Output can tell how far objects are in millimeters.
 
-Building a room map using VSLAM.
+- **Object Detection**  
+  Runs a pre-trained AI model on the Myriad X chip.  
+  Instead of sending full video to Jetson, it can directly output “person detected.”
 
-To track my progress, I will upload my daily work to GitHub using a structured folder system:
+## Example Pipeline Diagram
 
-my_robot_project/
+[Camera Node] → [Neural Network / Depth Node] → [XLinkOut] → [Host PC (OpenCV)]
 
-learning_log/
 
-Day_1_Basics/
-
-notes.md
-
-code.py
+## Code Snippet (from rgb_preview.py)
+```python
+pipeline = dai.Pipeline()
+cam = pipeline.create(dai.node.ColorCamera)
+xout = pipeline.create(dai.node.XLinkOut)
+cam.preview.link(xout.input)
