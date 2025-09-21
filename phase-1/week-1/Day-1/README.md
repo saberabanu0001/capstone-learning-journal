@@ -19,7 +19,7 @@ Understand what the OAK-D Lite camera is and why it’s special.
   Reduces load on the Jetson Orin NX.
 
 ## Diagram – Data Flow
-
+[OAK-D Lite: RGB + Stereo + Myriad X] → [Jetson Orin NX] → [ROS2] → [Robot Actions]
 
 ## One Useful Spec
 - RGB camera: 12MP, auto-focus, ~81° FOV.  
