@@ -1,7 +1,7 @@
 # 📅 Day-3: Object Detection with MobileNetSSD
 
 ## 🔗 Connection Between Day-2 & Day-3
-- **Day-2**: Robot can *see* raw pixels and measure distances.
+- **Day-2**: Robot now can *see* raw pixels and measure distances.
 - **Day-3**: Robot learns to *understand* what it sees.
 
 Examples:
