@@ -14,6 +14,12 @@ Spatial detection network demo.
 
 # Get argument first
 nnBlobPath = str((Path(__file__).parent / Path('../models/mobilenet-ssd_openvino_2021.4_6shave.blob')).resolve().absolute())
+
+"""
+Sets the path to the MobileNetSSD model blob.
+This is the AI “brain” that runs on Myriad X
+"""
+
 if len(sys.argv) > 1:
     nnBlobPath = sys.argv[1]
 
@@ -37,9 +43,11 @@ monoLeft = pipeline.create(dai.node.MonoCamera)
 monoRight = pipeline.create(dai.node.MonoCamera)
 stereo = pipeline.create(dai.node.StereoDepth)
 
+#These send frames/results back to your PC/Jetson.
 xoutRgb = pipeline.create(dai.node.XLinkOut)
 xoutNN = pipeline.create(dai.node.XLinkOut)
 xoutDepth = pipeline.create(dai.node.XLinkOut)
+
 
 xoutRgb.setStreamName("rgb")
 xoutNN.setStreamName("detections")
@@ -69,6 +77,11 @@ spatialDetectionNetwork.input.setBlocking(False)
 spatialDetectionNetwork.setBoundingBoxScaleFactor(0.5)
 spatialDetectionNetwork.setDepthLowerThreshold(100)
 spatialDetectionNetwork.setDepthUpperThreshold(5000)
+"""
+Loads MobileNetSSD blob.
+Only keeps detections above 50% confidence.
+Ignores objects closer than 10cm or farther than 5m.
+"""
 
 # Linking
 monoLeft.out.link(stereo.left)
