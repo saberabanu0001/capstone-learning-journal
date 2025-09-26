@@ -1,64 +1,60 @@
-📅 Week 3: First Image & Pipeline Basics
-🔗 Connection to Previous Work
-Week 2: The robot could see raw pixels using the camera.
-Week 3: The robot now learns to capture and display those pixels via a DepthAI pipeline, creating the software foundation for all future vision tasks.
+# 📅 Day-5: Testing Environment & First Custom Script  
 
-📋 test_camera.py
-This script proves that the software and hardware are correctly communicating. It's the robot's first live view of the world.
+## 🎯 Goal  
+* Test the OAK-D Lite setup in VS Code.  
+* Confirm DepthAI API is working.  
+* Build the first **custom script (`test_camera.py`)**.  
 
-Pipeline Comparison:
+---
 
-Week 2: [Camera] -> [Raw Pixels]
+## 🔗 What I Did  
 
-Week 3: [Camera (ColorCamera)] -> [XLinkOut] -> [Display with OpenCV]
+### 1. Environment Setup (MacBook)  
+* Created a virtual environment:  
+  ```bash
+  python3 -m venv depthai-env
+  source depthai-env/bin/activate
+* Installed DepthAI:
+- pip install depthai
+* Cloned the official DepthAI repository:
+- git clone https://github.com/luxonis/depthai-python.git
+### 2. Running Example (rgb_preview.py)
+Tried to run rgb_preview.py from examples/ColorCamera.
 
-🛠️ What the Code Does
-This foundational script does the following:
+Since hardware is not yet available, script showed:
+- RuntimeError: No available devices
+✅ This is expected — it means the software environment is ready, just waiting for the OAK-D Lite.
 
-Creates a DepthAI pipeline.
+### 3. My Own Script: test_camera.py
+Instead of only running examples, I wrote a simple custom script.
 
-Captures frames from the ColorCamera node.
+* What it does:
 
-Sends frames to the host computer using the XLinkOut node.
+- Creates a pipeline.
 
-Displays a live video feed using OpenCV.
+- Turns on the RGB camera.
 
-Includes print statements for debugging, allowing us to confirm the code works even without the camera plugged in.
+- Sends frames to the host computer.
 
-🚀 How to Run
-Follow these steps to test the script yourself:
+- Displays live video feed (once camera is connected).
 
-Activate your virtual environment:
+## 🔍 Why This Matters
+- Proves I understand DepthAI pipelines, not just copy–pasting examples.
 
-Bash
+- Gives us a debugging tool: later, if anything fails, I can run test_camera.py to confirm if the camera works.
 
-source depthai-env/bin/activate
-Install dependencies:
+- Acts as the foundation for Week-4’s official vision.py module (with reusable functions).
 
-Bash
+📊 Data Flow (Day-5)
 
-pip install depthai opencv-python
-Run the script:
+### [OAK-D Lite RGB Camera] → [DepthAI Pipeline] → [Host Display Window]
+When hardware is connected, this will show the first live image feed.
 
-Bash
+### ✅ Summary
+Environment fully set up (DepthAI installed, repo cloned).
 
-python test_camera.py
-🔎 Expected Output
-Without OAK-D Lite plugged in:
+Explored official examples (rgb_preview.py, stereo_depth.py, etc.).
 
-Plaintext
+Built my own custom script (test_camera.py).
 
-🚀 Starting test_camera.py...
-✅ Pipeline created.
-📷 Camera node configured and linked.
-❌ Could not connect to device. Maybe the OAK-D Lite is not plugged in?
-Error details: ...
-With OAK-D Lite connected:
-A window opens showing a live video feed. Press q to exit.
-
-🎯 Deliverable Goals
-Proves the ability to create and run a DepthAI pipeline from scratch.
-
-Establishes the foundation for Week 4, where the pipeline will be expanded into a more structured vision.py module.
-
-Ensures frames are being captured and are ready for future computer vision tasks.
+Currently blocked only by missing hardware — once it arrives, live video will work immediately.
