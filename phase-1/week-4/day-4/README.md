@@ -23,7 +23,7 @@ Upgrade the VisionSystem to use YOLO object detection + depth, while keeping ear
  - get_detections_with_depth() → YOLO detections + depth (Day-4)
 ---
 
-### Created ** test_vision_day4.py** :
+### Created **test_vision_day4.py** :
 
 - Displays RGB feed in OpenCV window.
 
@@ -61,9 +61,9 @@ Upgrade the VisionSystem to use YOLO object detection + depth, while keeping ear
 
 **Terminal:**
 
-[Depth] Center depth: 1.72 meters
-[YOLO] person (91.0%) at X=20mm, Y=120mm, Z=2400mm
-[YOLO] dog (78.0%) at X=-60mm, Y=30mm, Z=1800mm
+ - [Depth] Center depth: 1.72 meters
+- [YOLO] person (91.0%) at X=20mm, Y=120mm, Z=2400mm
+- [YOLO] dog (78.0%) at X=-60mm, Y=30mm, Z=1800mm
 
 ---
 
