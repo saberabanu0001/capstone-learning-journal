@@ -97,3 +97,16 @@ On your screen you see two windows:
 - The detections will come from the real YOLO model running on the OAK-D.
 
 - The depth values will be measured by stereo depth sensors inside the camera.
+
+# Output:
+- [YOLO] dog (91.0%) at X=70mm, Y=63mm, Z=2184mm 
+- [YOLO] car (87.0%) at X=-82mm, Y=93mm, Z=2723mm 
+- [YOLO] dog (90.0%) at X=16mm, Y=-42mm, Z=1100mm 
+- [YOLO] car (68.0%) at X=-69mm, Y=-28mm, Z=1107mm 
+- [YOLO] car (85.0%) at X=-99mm, Y=-88mm, Z=1544mm 
+- [YOLO] person (86.0%) at X=-68mm, Y=26mm, Z=817mm 
+- [YOLO] person (89.0%) at X=47mm, Y=69mm, Z=1553mm 
+- [YOLO] car (82.0%) at X=88mm, Y=87mm, Z=2726mm 
+- [YOLO] car (92.0%) at X=-41mm, Y=-1mm, Z=1664mm 
+- [YOLO] dog (76.0%) at X=-26mm, Y=9mm, Z^C, Z=2833mm 
+- Traceback (most recent call last): File "/Users/saberabanu/All Drives/Personal/CapstoneRoboticsProject/
