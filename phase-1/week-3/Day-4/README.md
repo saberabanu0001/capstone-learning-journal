@@ -59,3 +59,41 @@ On your screen you see two windows:
 ### 6. Repeat continuously
 - Runs many times per second.  
 - Gives **real-time 3D object detection**, e.g.:  
+---
+
+# Enhanced-----
+## 📌 Why you still see YOLO detections without a camera
+
+**Right now, in our VisionSystem (modules/vision.py), we set:**
+
+**vision = VisionSystem(simulate=True)**
+
+
+#### That simulate=True flag tells the code:
+👉 “Pretend we have a camera, and generate fake detections + fake depth values.”
+
+#### This was done so that:
+
+- You can develop and test the pipeline even without hardware.
+
+- You can show progress to professor (detections, depth, etc.) before the OAK-D actually arrives.
+
+### 📊 Where the values come from
+
+- label: random choices like "person", "car", "dog".
+
+- confidence: random % values like 62.0%, 90.0% …
+
+- coords_mm: simulated 3D coordinates (X, Y, Z in millimeters).
+
+**So right now → it’s just mock data (like a fake sensor).**
+**Once the OAK-D camera arrives, you’ll change:**
+
+- vision = VisionSystem(simulate=False)
+
+
+## Then:
+
+- The detections will come from the real YOLO model running on the OAK-D.
+
+- The depth values will be measured by stereo depth sensors inside the camera.
