@@ -25,12 +25,12 @@ Week 4	Vision Foundation	Implemented frame capture and core vision architecture
 Week 5	Object Detection	Integrated YOLO for detection + spatial depth estimation
 ## 🧩 VisionSystem Overview
 
-Core methods implemented:
+#### Core methods implemented:
 
 class VisionSystem:
-    def get_latest_frame()         # Capture RGB frame
-    def get_center_depth()         # Get depth at image center
-    def get_detections_with_depth()# YOLO detection + spatial data
+    - def get_latest_frame()         # Capture RGB frame
+    - def get_center_depth()         # Get depth at image center
+    - def get_detections_with_depth()# YOLO detection + spatial data
 
 
 Simulation mode ensures full functionality even without OAK-D hardware.
@@ -44,18 +44,18 @@ test_integration.py	Combined module verification
 
 Run test:
 
-python3 -m test.test_camera
+- python3 -m test.test_camera
 
 ## 📊 Phase-1 Outcome
 
-✅ Vision module successfully implemented and verified in simulation mode.
-🧠 Ready for hardware testing on Jetson + OAK-D in Phase 2.
-⚙️ Structured and modular design for easy integration with Audio and Motor systems.
+- ✅ Vision module successfully implemented and verified in simulation mode.
+- 🧠 Ready for hardware testing on Jetson + OAK-D in Phase 2.
+- ⚙️ Structured and modular design for easy integration with Audio and Motor systems.
 
-🔮 Next Phase (Phase 2 – Integration)
+## 🔮 Next Phase (Phase 2 – Integration)
 
-Connect OAK-D hardware and validate real-time detections
+- Connect OAK-D hardware and validate real-time detections
 
-Integrate vision with motion control
+- Integrate vision with motion control
 
-Enable decision-making using detection + depth data
+- Enable decision-making using detection + depth data
