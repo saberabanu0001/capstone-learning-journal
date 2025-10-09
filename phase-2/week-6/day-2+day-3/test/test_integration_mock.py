@@ -15,4 +15,21 @@ def simulate_audio_response(label, distance):
     else:
         return f"[Audio Mock] 🔍 'Detected a {label} at {distance:.1f} meters.'"
 
+# --- Start Simulation ---
+vision = VisionSystem(simulate=True)
+print("🔹 Starting Vision–Audio Integration Mock Test...\n")
 
+for i in range(5):
+    detections = vision.get_detections_with_depth()
+    if not detections:
+        print(f"[Cycle {i+1}] No detections.")
+    else:
+        for d in detections:
+            label = d["label"]
+            distance = d["coords_mm"][2] / 1000.0  # convert mm → meters
+            print(f"[Vision] Detected {label} at {distance:.2f}m")
+            print(simulate_audio_response(label, distance))
+    print("----")
+    time.sleep(1)
+
+print("\n✅ Integration Mock Test Complete.")
