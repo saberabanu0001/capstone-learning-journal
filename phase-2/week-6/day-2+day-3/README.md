@@ -20,21 +20,21 @@ Since the audio hardware is not available yet, a mock integration is created to 
 
 - simulate_audio_response(label, distance) → mimics audio output messages for detected objects.
 
-🧩 Example Output
-🔹 Starting Vision–Audio Integration Mock Test...
+## 🧩 Example Output
+### 🔹 Starting Vision–Audio Integration Mock Test...
 
-[Vision] Detected person at 2.45m
-[Audio Mock] 🗣️ 'Person detected at 2.5 meters.'
+- **[Vision] Detected person at 2.45m**
+- [Audio Mock] 🗣️ 'Person detected at 2.5 meters.'
 
-[Vision] Detected car at 4.86m
-[Audio Mock] 🚗 'Car ahead, approximately 4.9 meters away.'
+- **[Vision] Detected car at 4.86m**
+- [Audio Mock] 🚗 'Car ahead, approximately 4.9 meters away.'
 
-[Cycle 2] No detections.
+- [Cycle 2] No detections.
 ----
 ✅ Integration Mock Test Complete.
 
-💡 Outcome
+## 💡 Outcome
 
-✅ Verified that the Vision module outputs can be smoothly passed to an Audio System interface.
-✅ Integration design confirmed before real hardware implementation.
-✅ Next step → connect real audio.py module for live TTS integration.
+- ✅ Verified that the Vision module outputs can be smoothly passed to an Audio System interface.
+- ✅ Integration design confirmed before real hardware implementation.
+- ✅ Next step → connect real audio.py module for live TTS integration.
