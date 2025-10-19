@@ -36,12 +36,12 @@
 
 - SSH connection was established from Mac to Jetson:
 
-- - - ssh root@100.87.198.86
+- ***sh root@100.87.198.86***
 
 
 - Confirmed successful connection with:
 
-- - Welcome to Ubuntu 20.04.6 LTS (Jetson)
+- ***Welcome to Ubuntu 20.04.6 LTS (Jetson)***
 
 
 
@@ -53,7 +53,7 @@
 
 Output confirmed device:
 
-- - Bus 001 Device 011: ID 03e7:2485 Intel Movidius MyriadX
+-  ***Bus 001 Device 011: ID 03e7:2485 Intel Movidius MyriadX***
 
 ### 🧩 Step 2: Install DepthAI SDK
 - sudo apt install python3-pip python3-dev python3-numpy -y
