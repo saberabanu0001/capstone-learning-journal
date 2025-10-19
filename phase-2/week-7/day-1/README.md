@@ -19,3 +19,26 @@
 - saberas-macbook-air
 
 - ubuntu (Jetson board)
+
+
+
+
+
+## ⚙️ Setup Steps:
+
+- Installed Tailscale on both Mac and Jetson.
+
+- Logged in using the shared Tailscale account (rovercapstone@gmail.com).
+
+- Verified connection on Tailscale Admin Panel:
+
+- - All machines showed as Connected (green dot ✅).
+
+- SSH connection was established from Mac to Jetson:
+
+- - - ssh root@100.87.198.86
+
+
+- Confirmed successful connection with:
+
+- - Welcome to Ubuntu 20.04.6 LTS (Jetson)
