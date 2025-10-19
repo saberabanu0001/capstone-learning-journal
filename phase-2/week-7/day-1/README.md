@@ -85,3 +85,16 @@ with dai.Device(pipeline) as device:
 
 ## ▶️ Run the Test:
 ***python3 test_depthai.py***
+
+## ✅ Output:
+***Device connected: OAK-D-LITE***
+***Frame received: (1080, 1920, 3)***
+
+
+## ✅ This confirms:
+
+- DepthAI SDK works.
+
+- Jetson recognizes and streams from OAK-D Lite camera.
+
+- Python can access the video frames successfully.
