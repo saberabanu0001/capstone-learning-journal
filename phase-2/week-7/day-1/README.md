@@ -42,3 +42,22 @@
 - Confirmed successful connection with:
 
 - - Welcome to Ubuntu 20.04.6 LTS (Jetson)
+
+
+
+
+## 2. OAK-D Lite Connection Verification
+### 🧩 Step 1: Check if the camera is connected
+- - lsusb
+
+
+Output confirmed device:
+
+- - Bus 001 Device 011: ID 03e7:2485 Intel Movidius MyriadX
+
+### 🧩 Step 2: Install DepthAI SDK
+- sudo apt install python3-pip python3-dev python3-numpy -y
+- pip3 install depthai==2.29.0.0
+
+
+### ✅ Success: Installed precompiled wheel for ARM (aarch64).
