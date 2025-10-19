@@ -61,3 +61,24 @@ Output confirmed device:
 
 
 ### ✅ Success: Installed precompiled wheel for ARM (aarch64).
+
+
+
+
+## 🧠 3. DepthAI Test (Camera Verification)
+🔧 Created Test Script: test_depthai.py
+import depthai as dai
+
+pipeline = dai.Pipeline()
+cam_rgb = pipeline.createColorCamera()
+xout = pipeline.createXLinkOut()
+xout.setStreamName("video")
+cam_rgb.video.link(xout.input)
+
+with dai.Device(pipeline) as device:
+    print("Device connected:", device.getDeviceName())
+    q = device.getOutputQueue(name="video", maxSize=4, blocking=False)
+    while True:
+        frame = q.get().getCvFrame()
+        print("Frame received:", frame.shape)
+        break
