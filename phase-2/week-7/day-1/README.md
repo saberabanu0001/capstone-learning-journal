@@ -82,3 +82,6 @@ with dai.Device(pipeline) as device:
         frame = q.get().getCvFrame()
         print("Frame received:", frame.shape)
         break
+
+## ▶️ Run the Test:
+***python3 test_depthai.py***
