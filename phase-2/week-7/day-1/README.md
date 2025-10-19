@@ -98,3 +98,12 @@ with dai.Device(pipeline) as device:
 - Jetson recognizes and streams from OAK-D Lite camera.
 
 - Python can access the video frames successfully.
+
+
+## Next Step:
+
+- We will now:
+
+- Update modules/vision.py to run seamlessly on Jetson.
+
+- (Optionally) Enable remote video stream preview from Jetson → Mac via SSH tunneling or lightweight web streaming.
