@@ -70,3 +70,14 @@ It integrates real-time computer vision and voice feedback using an OAK-D Lite A
 
 
 - More labels can easily be added later for fine-tuning.
+
+
+🧩 Technical Notes
+
+Model used: yolov8n_coco_640x352.blob
+
+Resolution: 640×352 @ 30 FPS
+
+Confidence threshold: 0.4 (adjustable for smaller object detection)
+
+Tested on: MacBook M4 with Python 3.9 and DepthAI 2.30.0
