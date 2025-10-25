@@ -28,3 +28,5 @@ It integrates real-time computer vision and voice feedback using an OAK-D Lite A
 - Mac TTS (Text-to-Speech) → Gives audio feedback for detected objects.
 
 - OpenCV → Displays bounding boxes and object labels.
+
+
