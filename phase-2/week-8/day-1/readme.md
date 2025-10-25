@@ -81,3 +81,15 @@ It integrates real-time computer vision and voice feedback using an OAK-D Lite A
 - Confidence threshold: 0.4 (adjustable for smaller object detection)
 
 - Tested on: MacBook M4 with Python 3.9 and DepthAI 2.30.0
+
+
+
+🚀 Next Steps
+
+Fine-Tune YOLOv8 for lab-specific objects (robot parts, bottles, chairs, humans, etc.)
+
+Integrate SLAM (Simultaneous Localization and Mapping) for autonomous navigation.
+
+Add gesture recognition or motion tracking for user interaction.
+
+Replace voice system with a cross-platform version (optional).
