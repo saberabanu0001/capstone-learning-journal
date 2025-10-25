@@ -60,3 +60,13 @@ It integrates real-time computer vision and voice feedback using an OAK-D Lite A
 - At least 4 seconds have passed since the last spoken alert for the same label
 
 - This ensures natural feedback without repetition or lag.
+
+
+📍 Detected Object Labels
+
+Currently detecting objects from:
+
+TARGET_LABELS = ["person", "bottle", "cup", "cell phone", "potted plant", "pen"]
+
+
+More labels can easily be added later for fine-tuning.
