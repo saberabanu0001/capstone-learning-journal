@@ -84,12 +84,12 @@ It integrates real-time computer vision and voice feedback using an OAK-D Lite A
 
 
 
-🚀 Next Steps
+## 🚀 Next Steps
 
-Fine-Tune YOLOv8 for lab-specific objects (robot parts, bottles, chairs, humans, etc.)
+- Fine-Tune YOLOv8 for lab-specific objects (robot parts, bottles, chairs, humans, etc.)
 
-Integrate SLAM (Simultaneous Localization and Mapping) for autonomous navigation.
+- Integrate SLAM (Simultaneous Localization and Mapping) for autonomous navigation.
 
-Add gesture recognition or motion tracking for user interaction.
+- Add gesture recognition or motion tracking for user interaction.
 
-Replace voice system with a cross-platform version (optional).
+- Replace voice system with a cross-platform version (optional).
