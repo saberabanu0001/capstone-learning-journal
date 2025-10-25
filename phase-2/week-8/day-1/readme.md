@@ -11,3 +11,20 @@ It integrates real-time computer vision and voice feedback using an OAK-D Lite A
 - A macOS-compatible voice alert system that speaks detected objects aloud.
 
 - A modular DepthAI pipeline compatible with SLAM and future motion systems.
+
+
+
+
+## ⚙️ System Architecture
+
+**Components:**
+
+- OAK-D Lite Camera → Provides RGB + Depth input.
+
+DepthAI SDK (v2.30.0) → Builds real-time vision pipeline.
+
+YOLOv8n Model (COCO dataset) → Detects common objects with bounding boxes and depth data.
+
+Mac TTS (Text-to-Speech) → Gives audio feedback for detected objects.
+
+OpenCV → Displays bounding boxes and object labels.
