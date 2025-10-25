@@ -42,21 +42,21 @@ It integrates real-time computer vision and voice feedback using an OAK-D Lite A
 
 
 
-🗣️ Voice Functionality (macOS)
+## 🗣️ Voice Functionality (macOS)
 
-The voice module uses:
+### The voice module uses:
 
-subprocess.Popen(['say', phrase])
+***subprocess.Popen(['say', phrase])***
 
 
-Example output:
+#### Example output:
 
-“Person detected 1.2 meters away.”
+***“Person detected 1.2 meters away.”***
 
-It triggers when:
+#### It triggers when:
 
-Confidence ≥ 70%
+***Confidence ≥ 70%***
 
-At least 4 seconds have passed since the last spoken alert for the same label
+- At least 4 seconds have passed since the last spoken alert for the same label
 
-This ensures natural feedback without repetition or lag.
+- This ensures natural feedback without repetition or lag.
