@@ -30,3 +30,12 @@ It integrates real-time computer vision and voice feedback using an OAK-D Lite A
 - OpenCV → Displays bounding boxes and object labels.
 
 
+
+## 🎯 Key Features
+## Feature	Description
+- 🎥 Object Detection	- Detects people, bottles, cups, plants, and phones in real time.
+- 🧠 Spatial Awareness	- Measures distance (depth) of objects from the robot camera.
+- 🗣️ Voice Announcements	- The robot audibly announces detected objects and their distance (macOS say command).
+- 📦 Threaded Detection Queue	- Processes detections in parallel for smooth real-time updates.
+- ⚡ Modular Code	- Vision and voice modules separated for easy integration with SLAM and motion control.
+- 🌗 Lighting Adjustment	- Automatic frame normalization for better low-light detection.
