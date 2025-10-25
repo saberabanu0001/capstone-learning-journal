@@ -62,11 +62,11 @@ It integrates real-time computer vision and voice feedback using an OAK-D Lite A
 - This ensures natural feedback without repetition or lag.
 
 
-📍 Detected Object Labels
+## 📍 Detected Object Labels
 
-Currently detecting objects from:
+- Currently detecting objects from:
 
-TARGET_LABELS = ["person", "bottle", "cup", "cell phone", "potted plant", "pen"]
+- ***TARGET_LABELS = ["person", "bottle", "cup", "cell phone", "potted plant", "pen"]***
 
 
-More labels can easily be added later for fine-tuning.
+- More labels can easily be added later for fine-tuning.
