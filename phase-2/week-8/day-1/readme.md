@@ -39,3 +39,24 @@ It integrates real-time computer vision and voice feedback using an OAK-D Lite A
 - 📦 Threaded Detection Queue	- Processes detections in parallel for smooth real-time updates.
 - ⚡ Modular Code	- Vision and voice modules separated for easy integration with SLAM and motion control.
 - 🌗 Lighting Adjustment	- Automatic frame normalization for better low-light detection.
+
+
+
+🗣️ Voice Functionality (macOS)
+
+The voice module uses:
+
+subprocess.Popen(['say', phrase])
+
+
+Example output:
+
+“Person detected 1.2 meters away.”
+
+It triggers when:
+
+Confidence ≥ 70%
+
+At least 4 seconds have passed since the last spoken alert for the same label
+
+This ensures natural feedback without repetition or lag.
