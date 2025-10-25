@@ -21,10 +21,10 @@ It integrates real-time computer vision and voice feedback using an OAK-D Lite A
 
 - OAK-D Lite Camera → Provides RGB + Depth input.
 
-DepthAI SDK (v2.30.0) → Builds real-time vision pipeline.
+- DepthAI SDK (v2.30.0) → Builds real-time vision pipeline.
 
-YOLOv8n Model (COCO dataset) → Detects common objects with bounding boxes and depth data.
+- YOLOv8n Model (COCO dataset) → Detects common objects with bounding boxes and depth data.
 
-Mac TTS (Text-to-Speech) → Gives audio feedback for detected objects.
+- Mac TTS (Text-to-Speech) → Gives audio feedback for detected objects.
 
-OpenCV → Displays bounding boxes and object labels.
+- OpenCV → Displays bounding boxes and object labels.
