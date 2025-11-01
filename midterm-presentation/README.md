@@ -13,4 +13,5 @@
 
 ## Hoping for the final.
 
-**
+**Anyway, Sabera, don't give hope!!**
+**Sabera is brave!**
