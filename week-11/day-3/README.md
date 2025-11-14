@@ -74,12 +74,12 @@ This is a model file that llama.cpp understands.
 
 - the LLaVA language model
 
-the LLaVA vision encoder
+- the LLaVA vision encoder
 
-the LLaVA projector
+- the LLaVA projector
 
-runs inference
+- runs inference
 
-gives an answer
+- gives an answer
 
-That’s it.
+- That’s it.
