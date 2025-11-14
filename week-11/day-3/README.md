@@ -55,3 +55,31 @@ So the real architecture is:
 
 
 There is no separate llava.cpp, because llama.cpp already supports it.
+
+
+🧵 Visual Explanation
+Step 1 — You download llama.cpp
+
+This is the engine.
+
+Step 2 — You download a LLaVA model in GGUF
+
+This is a model file that llama.cpp understands.
+
+Step 3 — You run llama.cpp like:
+./llama-cli -m llava-v1.5.gguf --image img.jpg -p "Describe this image"
+
+
+Now llama.cpp loads:
+
+the LLaVA language model
+
+the LLaVA vision encoder
+
+the LLaVA projector
+
+runs inference
+
+gives an answer
+
+That’s it.
