@@ -26,14 +26,14 @@
 
 
 
-👉 3. To run LLaVA inside llama.cpp, you need the LLaVA model converted to GGUF format
+### 👉 3. To run LLaVA inside llama.cpp, you need the LLaVA model converted to GGUF format
 
-That means:
+- That means:
 
-LLaVA model (original) → converted to → .gguf file → run with llama.cpp
+***LLaVA model (original) → converted to → .gguf file → run with llama.cpp***
 
 
 So:
-✔ You use llama.cpp as your runner
-✔ You use LLaVA GGUF as your model
-✔ Together = LLaVA running in C++
+- ✔ You use llama.cpp as your runner
+- ✔ You use LLaVA GGUF as your model
+- ✔ Together = LLaVA running in C++
