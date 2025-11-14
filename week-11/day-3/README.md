@@ -37,3 +37,21 @@ So:
 - ✔ You use llama.cpp as your runner
 - ✔ You use LLaVA GGUF as your model
 - ✔ Together = LLaVA running in C++
+
+
+# 🚀 So why is there no "llava.cpp" repo?
+
+Because:
+
+- LLaVA does not maintain a C++ version
+
+- Instead, llama.cpp added support for vision models
+ - → including LLaVA
+ - → so you can run LLaVA inside llama.cpp
+
+So the real architecture is:
+
+***[LLaVA Model GGUF]  →  [llama.cpp Engine]  →  Inference (captioning, VQA)***
+
+
+There is no separate llava.cpp, because llama.cpp already supports it.
