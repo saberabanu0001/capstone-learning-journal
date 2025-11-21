@@ -18,3 +18,77 @@
 - Visual display with bounding boxes
 - **Main purpose**: Object detection and announcement
 
+**CURRENT:**
+- YOLO detection **optional** via `enable_person_detection=False` parameter
+- Only detects **person** (class 0 from COCO)
+- Same `YoloSpatialDetectionNetwork` but with depth alignment fix
+- **No voice feedback** (removed `say` command)
+- **No visual display** (no cv2.imshow or bounding boxes)
+- **Main purpose**: Navigation with optional person detection
+- Has `detect_person()` method to get person detections programmatically
+- Has `get_person_direction()` to determine if person is left/center/right
+
+---
+
+### **2. Camera Pipeline - Improved**
+
+**OLD:**
+```python
+# Simple pipeline
+cam_rgb.setPreviewSize(640, 352)  # Different resolution
+stereo.setDepthAlign(dai.CameraBoardSocket.CAM_A)  # Wrong alignment
+# No depth alignment fix
+```
+
+**CURRENT:**
+```python
+# Better pipeline
+camRgb.setPreviewSize(640, 480)  # Standard resolution
+stereo.setDepthAlign(dai.CameraBoardSocket.RGB)  # ✅ FIXED - aligns to RGB
+# Tries HIGH_ACCURACY preset, falls back gracefully
+# Optional person detection integrated cleanly
+```
+
+**Key Improvement**: `setDepthAlign(dai.CameraBoardSocket.RGB)` fixes spatial detection warnings
+
+---
+
+### **3. Frame Capture - Different Approaches**
+
+**OLD:**
+```python
+# Simple queue.get() - no synchronization
+in_rgb = q_rgb.tryGet()
+in_det = q_det.tryGet()
+# Could get mismatched frames
+```
+
+**CURRENT:**
+```python
+# Simple get() in capture_frames()
+rgb_msg = self.rgb_queue.get()
+depth_msg = self.depth_queue.get()
+# Still no synchronization fix (unlike the "fixed" version I saw earlier)
+# But has separate detect_person() method
+```
+
+**Note**: The version you showed me doesn't have the frame synchronization fix that was in SAFETY_FIXES.md
+
+---
+
+### **4. DepthNavigator - Simpler Scoring**
+
+**OLD:**
+- No DepthNavigator class (just detection + voice)
+
+**CURRENT:**
+- Has `DepthNavigator` class for obstacle avoidance
+- **Simpler scoring**: Only uses median distance (not median + minimum)
+- **Lower safety threshold**: 0.35 (35%) instead of 0.5 (50%)
+- **Lower minimum distance**: 400mm instead of 600mm
+- **Larger movement distances**: 0.15-0.3m instead of 0.03-0.15m
+- Scoring: `0.3 + normalized * 0.7` (400mm=0.3, 2000mm+=1.0)
+- No minimum distance check (only median)
+- No emergency stop logic in DepthNavigator itself
+
+---
