@@ -182,3 +182,18 @@ The version you just showed me is **DIFFERENT** from the "fixed" version I saw i
 - ✅ Has optional person detection
 - ✅ Simpler, more permissive navigation
 
+**"Fixed" Version (from SAFETY_FIXES.md):**
+- ✅ Frame synchronization
+- ✅ Safety threshold: 0.5 (50%)
+- ✅ Min distance: 600mm
+- ✅ Checks both median AND minimum
+- ✅ Movement: 0.03-0.15m
+- ❌ No person detection
+- ✅ More conservative, safer
+
+**This suggests**: Your leader may have **reverted** some safety fixes, or you're using a **different version** than what's documented in SAFETY_FIXES.md
+
+---
+
+
+
