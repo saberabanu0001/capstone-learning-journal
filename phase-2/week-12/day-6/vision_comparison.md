@@ -53,3 +53,61 @@ stereo.setDepthAlign(dai.CameraBoardSocket.RGB)  # ✅ FIXED - aligns to RGB
 
 ---
 
+### **3. Frame Capture - Different Approaches**
+
+**OLD:**
+```python
+# Simple queue.get() - no synchronization
+in_rgb = q_rgb.tryGet()
+in_det = q_det.tryGet()
+# Could get mismatched frames
+```
+
+**CURRENT:**
+```python
+# Simple get() in capture_frames()
+rgb_msg = self.rgb_queue.get()
+depth_msg = self.depth_queue.get()
+# Still no synchronization fix (unlike the "fixed" version I saw earlier)
+# But has separate detect_person() method
+```
+
+**Note**: The version you showed me doesn't have the frame synchronization fix that was in SAFETY_FIXES.md
+
+---
+
+### **4. DepthNavigator - Simpler Scoring**
+
+**OLD:**
+- No DepthNavigator class (just detection + voice)
+
+**CURRENT:**
+- Has `DepthNavigator` class for obstacle avoidance
+- **Simpler scoring**: Only uses median distance (not median + minimum)
+- **Lower safety threshold**: 0.35 (35%) instead of 0.5 (50%)
+- **Lower minimum distance**: 400mm instead of 600mm
+- **Larger movement distances**: 0.15-0.3m instead of 0.03-0.15m
+- Scoring: `0.3 + normalized * 0.7` (400mm=0.3, 2000mm+=1.0)
+- No minimum distance check (only median)
+- No emergency stop logic in DepthNavigator itself
+
+---
+
+### **5. Integration Architecture**
+
+**OLD:**
+- Standalone vision system
+- Run directly: `VisionSystem().run()`
+- Blocking loop with cv2.imshow
+- Voice feedback integrated
+- No integration with navigation
+
+**CURRENT:**
+- **Modular design**: `OakDDepthCamera` + `DepthNavigator` as separate classes
+- Used by `depth_llava_nav.py` for autonomous navigation
+- Used by `smart_assistant.py` for vision questions
+- **No blocking display** (no cv2.imshow in main flow)
+- Person detection is **optional feature**, not core functionality
+- Returns data structures, doesn't display/announce
+
+---
