@@ -111,3 +111,22 @@ depth_msg = self.depth_queue.get()
 - Returns data structures, doesn't display/announce
 
 ---
+
+## 📊 **FEATURE COMPARISON TABLE**
+
+| Feature | OLD System | CURRENT System |
+|---------|-----------|----------------|
+| **YOLO Detection** | Always on, 5 object types | Optional, person only |
+| **Voice Feedback** | ✅ Yes (`say` command) | ❌ No |
+| **Visual Display** | ✅ Yes (bounding boxes) | ❌ No |
+| **Spatial Coordinates** | ✅ Yes (depth per object) | ✅ Yes (via detect_person()) |
+| **Frame Sync** | ❌ No | ❌ No (in your version) |
+| **Depth Navigation** | ❌ No | ✅ Yes (DepthNavigator) |
+| **Safety Threshold** | N/A | 35% (0.35) |
+| **Min Distance** | N/A | 400mm |
+| **Movement Distances** | N/A | 0.15-0.3m |
+| **Integration** | Standalone | Modular (used by nav/assistant) |
+| **Person Detection API** | ❌ No | ✅ Yes (detect_person()) |
+| **Direction Detection** | ❌ No | ✅ Yes (get_person_direction()) |
+
+---
