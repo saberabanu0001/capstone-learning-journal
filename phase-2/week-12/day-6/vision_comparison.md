@@ -197,3 +197,17 @@ The version you just showed me is **DIFFERENT** from the "fixed" version I saw i
 
 
 
+## 💡 **SUMMARY**
+
+**From OLD to CURRENT:**
+1. ✅ **YOLO became optional** instead of always-on
+2. ✅ **Removed voice/display** - now returns data instead
+3. ✅ **Added DepthNavigator** for obstacle avoidance
+4. ✅ **Modular design** - can be used by other systems
+5. ✅ **Person detection API** - `detect_person()` method
+6. ❌ **Lost voice feedback** - no more "person detected X meters away"
+7. ❌ **Lost visual display** - no bounding boxes shown
+8. ⚠️ **Simpler safety** - lower thresholds, no minimum distance check
+9. ⚠️ **No frame sync fix** - might have timing issues
+
+**The vision evolved from "detect and announce objects" to "navigate safely with optional person detection"**
