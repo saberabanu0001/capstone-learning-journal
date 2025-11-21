@@ -130,3 +130,42 @@ depth_msg = self.depth_queue.get()
 | **Direction Detection** | ❌ No | ✅ Yes (get_person_direction()) |
 
 ---
+
+## 🔄 **WHAT STAYED THE SAME**
+
+1. ✅ **YOLOv8 model**: Still uses `yolov8n_coco_640x352.blob`
+2. ✅ **Spatial detection**: Still gets depth for detected objects
+3. ✅ **COCO classes**: Still uses 80-class COCO dataset
+4. ✅ **Confidence threshold**: Similar (0.4-0.45)
+5. ✅ **Depth range**: 100mm-4000mm
+6. ✅ **Stereo depth**: Same stereo camera setup
+
+---
+
+## 🎯 **KEY ARCHITECTURAL CHANGES**
+
+### **OLD: Monolithic Detection System**
+```
+VisionSystem
+  ├─ Always runs YOLO
+  ├─ Always displays results
+  ├─ Always speaks detections
+  └─ Standalone (not integrated)
+```
+
+### **CURRENT: Modular Navigation System**
+```
+OakDDepthCamera (optional person detection)
+  ├─ capture_frames() → RGB + depth
+  └─ detect_person() → person detections (optional)
+
+DepthNavigator
+  └─ get_navigation_command() → navigation decisions
+
+Used by:
+  ├─ depth_llava_nav.py (autonomous navigation)
+  └─ smart_assistant.py (vision questions)
+```
+
+---
+
