@@ -169,3 +169,16 @@ Used by:
 
 ---
 
+## 🚨 **IMPORTANT: Your Current Version vs "Fixed" Version**
+
+The version you just showed me is **DIFFERENT** from the "fixed" version I saw in the repo earlier:
+
+**Your Current Version (what you showed):**
+- ❌ No frame synchronization fix
+- ❌ Safety threshold: 0.35 (not 0.5)
+- ❌ Min distance: 400mm (not 600mm)
+- ❌ Only median distance (not median + minimum)
+- ❌ Movement: 0.15-0.3m (not 0.03-0.15m)
+- ✅ Has optional person detection
+- ✅ Simpler, more permissive navigation
+
