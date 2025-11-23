@@ -66,3 +66,23 @@ matches = face_recognition.compare_faces(known_faces, encoding, tolerance=0.6)
 - ❌ **No face alignment** - Less robust to pose variations
 - ❌ **Smaller embeddings** - 128-dim vs 512-dim (less discriminative)
 - ❌ **dlib compilation** - Can be tricky on some systems
+
+**Best for:**
+- Simple, reliable face recognition
+- Systems without GPU
+- Quick prototyping
+- When accuracy of 95-97% is sufficient
+
+---
+
+### **InsightFace (ArcFace) - Available But Not Used**
+
+**How it works:**
+```python
+# Your example implementation in face_recognition_example.py
+from insightface import app as insightface_app
+
+face_analyzer = insightface_app.FaceAnalysis(name='arcface_r100_v1')
+faces = face_analyzer.get(image_rgb)
+embedding = face.normed_embedding  # 512-dim normalized vector
+similarity = np.dot(embedding, known_embedding)  # Cosine similarity
