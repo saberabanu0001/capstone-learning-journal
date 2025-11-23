@@ -51,3 +51,18 @@ import face_recognition  # Wrapper around dlib
 face_encodings = face_recognition.face_encodings(image)  # 128-dim vector
 matches = face_recognition.compare_faces(known_faces, encoding, tolerance=0.6)
 ```
+**Pros:**
+- ✅ **Simple API** - Very easy to use
+- ✅ **Well-documented** - 55k+ GitHub stars, lots of examples
+- ✅ **No GPU required** - Works on CPU (good for Jetson without CUDA)
+- ✅ **Lightweight** - Smaller model size
+- ✅ **Already integrated** - Working in your smart assistant
+- ✅ **Stable** - Mature library, widely used
+- ✅ **Easy installation** - `pip install face-recognition`
+
+**Cons:**
+- ❌ **Lower accuracy** - 95-97% vs 99%+ for InsightFace
+- ❌ **No GPU acceleration** - Slower on systems with GPU
+- ❌ **No face alignment** - Less robust to pose variations
+- ❌ **Smaller embeddings** - 128-dim vs 512-dim (less discriminative)
+- ❌ **dlib compilation** - Can be tricky on some systems
