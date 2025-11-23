@@ -37,3 +37,17 @@
 | **License** | MIT | Apache 2.0 |
 
 ---
+
+## 🔍 Technical Details
+
+### **ageitgey/face_recognition (What You're Using Now)**
+
+**How it works:**
+```python
+# Your current implementation in face_recognition_module.py
+import face_recognition  # Wrapper around dlib
+
+# Uses dlib's ResNet model
+face_encodings = face_recognition.face_encodings(image)  # 128-dim vector
+matches = face_recognition.compare_faces(known_faces, encoding, tolerance=0.6)
+```
