@@ -86,3 +86,26 @@ face_analyzer = insightface_app.FaceAnalysis(name='arcface_r100_v1')
 faces = face_analyzer.get(image_rgb)
 embedding = face.normed_embedding  # 512-dim normalized vector
 similarity = np.dot(embedding, known_embedding)  # Cosine similarity
+
+**Pros:**
+- ✅ **Higher accuracy** - 99%+ on standard benchmarks
+- ✅ **GPU acceleration** - Much faster with CUDA (15-30 FPS)
+- ✅ **Face alignment** - Automatically aligns faces (more robust)
+- ✅ **Better embeddings** - 512-dim vs 128-dim (more discriminative)
+- ✅ **Modern architecture** - ArcFace (state-of-the-art)
+- ✅ **Multiple images** - Built-in support for averaging multiple photos
+- ✅ **Better with variations** - Handles lighting, angle, expression better
+
+**Cons:**
+- ❌ **Complex installation** - Needs ONNX Runtime, CUDA setup
+- ❌ **Larger model** - ~500MB+ vs ~100MB
+- ❌ **More dependencies** - ONNX, CUDA drivers, etc.
+- ❌ **Not integrated** - Only example code exists
+- ❌ **Import issues** - Your code shows complex matplotlib workarounds
+- ⚠️ **CPU performance** - Similar to dlib without GPU
+
+**Best for:**
+- Maximum accuracy requirements
+- Systems with GPU (Jetson with CUDA)
+- Production systems needing 99%+ accuracy
+- When handling many variations (lighting, pose, etc.)
