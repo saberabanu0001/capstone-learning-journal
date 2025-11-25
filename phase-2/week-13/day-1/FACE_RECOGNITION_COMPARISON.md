@@ -278,5 +278,6 @@ pip install onnxruntime
 - You have GPU available and want faster processing
 - Current accuracy is causing problems
 
+
 **If you do want to switch**, the InsightFace code is already written in `face_recognition_example.py` - you just need to integrate it into `smart_assistant.py` instead of `FaceRecognizer`.
 
